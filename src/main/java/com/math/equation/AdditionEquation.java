@@ -1,5 +1,7 @@
 package com.math.equation;
 
+import org.junit.Test;
+
 public class AdditionEquation extends Equation {
 
     public AdditionEquation(){
@@ -18,5 +20,6 @@ public class AdditionEquation extends Equation {
     public int calculate(){  //实现抽象方法
         return this.getLeft_operand() + this.getRight_operand();
     }
+
 
 }
