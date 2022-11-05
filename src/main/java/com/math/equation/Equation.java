@@ -2,7 +2,7 @@ package com.math.equation;
 
 import java.util.Random;
 
-public abstract class Equation {
+public  class Equation {
 
     public static final int UPPER=100;
     public static final int LOWER=0;
@@ -10,6 +10,13 @@ public abstract class Equation {
     private int right_operand=0;
     private char operator='+';
     private int value=0;
+    public Equation(){}
+    public Equation(int left_operand,char operator, int right_operand,int value){
+        this.left_operand=left_operand;
+        this.operator=operator;
+        this.right_operand=right_operand;
+        this.value=value;
+    }
 
     public int getLeft_operand() {
         return left_operand;
@@ -47,8 +54,8 @@ public abstract class Equation {
         do {
             left_operand = generateOperand();
             right_operand= generateOperand();
-            value = calculate();
-        }while(!isCheck(value,LOWER,UPPER));
+//            value = calculate();
+        }while(!isCheck(LOWER,UPPER));
         this.setOperator(operator);
     }
 
@@ -74,8 +81,8 @@ public abstract class Equation {
     }
 
     //	¼ìÑéÊý¾Ý
-    public static boolean isCheck(int n,int a,int b){
-        if(n>=a&&n<=b){
+    public static boolean isCheck(int a,int b){
+        if(100>=a&&100<=b){
             return true;
         }
         return false;
@@ -88,5 +95,5 @@ public abstract class Equation {
     public String toString(){
         return ""+this.getLeft_operand()+this.getOperator()+this.getRight_operand()+"=";
     }
-    public abstract int calculate();
+//    public int calculate(){};
 }
