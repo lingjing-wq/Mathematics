@@ -13,7 +13,6 @@ public class MyMap<K,V> extends HashMap {
         if (!i.hasNext())
             return "";
         StringBuffer buffer = new StringBuffer();
-        // buffer.append("{");//注意此程序与源代码的区别
         for (;;) {
             Map.Entry<K, V> me = i.next();
             K key = me.getKey();

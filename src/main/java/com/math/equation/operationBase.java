@@ -1,14 +1,11 @@
 package com.math.equation;
 
-import org.junit.Test;
 
 public class operationBase {
     public static final int UPPER=100;
     public static final int LOWER=0;
     public int count=0;
     MyMap<Integer,Equation> map=new MyMap();
-
-
 
     public MyMap<Integer,Equation> addBase() {
         for (int i = 0; i <= UPPER; i++) {

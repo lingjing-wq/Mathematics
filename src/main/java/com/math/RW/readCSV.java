@@ -14,7 +14,6 @@ public class readCSV {
             while((line=textFile.readLine())!=null){
                 String[] line1=line.split(":");
                 System.out.printf(n+":"+line1[1]+" \t\t\t");
-//                System.out.printf(String.format("%12s",n+":"+line1[1]+"\t"));
                 if(n%5==0) {
                     System.out.println();
                 }

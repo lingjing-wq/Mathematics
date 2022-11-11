@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/main/java/com/math/correction/Check.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/math/equation/AdditionEquation.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/math/equation/Equation.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/math/equation/SubstractEquation.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/math/exercise/Exercise.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/math/ui/CommandUi.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/math/user/User.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

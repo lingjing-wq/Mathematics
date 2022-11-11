@@ -1,17 +1,20 @@
 package com.math.ui;
 import com.math.exercise.genetateExercise;
+import org.junit.Test;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CommandUi {
 
-    public static String Mainmenu[]={"¼Ó·¨","¼õ·¨","»ìºÏ","ÍË³öÏµÍ³"};
-    public static String Pattern[]={"ÌôÕ½Ä£Ê½","ÊÔ¾íÄ£Ê½","·µ»ØÉÏÒ»¼¶µÄ²Ëµ¥À¸"};
+    public static String Mainmenu[]={"åŠ æ³•","å‡æ³•","æ··åˆ","é€€å‡ºç³»ç»Ÿ"};
+    public static String Pattern[]={"æŒ‘æˆ˜æ¨¡å¼","è¯•å·æ¨¡å¼","è¿”å›ä¸Šä¸€çº§çš„èœå•æ "};
     public static  Scanner in=new Scanner(System.in);
     static genetateExercise g=new genetateExercise();
-    public int mark=0;
 
-    public static void execute() {
+
+    @Test
+    public void execute() {
         int a;
         int b=0;
         String exit="n";
@@ -20,7 +23,7 @@ public class CommandUi {
             printmenu();
             String str= in.next();
             while(!str.equals("0")&&!str.equals("1")&&!str.equals("2")&&!str.equals("3")){
-                System.out.println("ÊäÈë²»ºÏ·¨£ºÖ»ÄÜÊäÈë0-3µÄÊı×Ö¡£ÇëÖØĞÂÊäÈë£¡");
+                System.out.println("è¾“å…¥ä¸åˆæ³•ï¼šåªèƒ½è¾“å…¥0-3çš„æ•°å­—ã€‚è¯·é‡æ–°è¾“å…¥ï¼");
                 str= in.next();
             }
               a=Integer.parseInt(str);
@@ -31,17 +34,17 @@ public class CommandUi {
                         printindex1(a);
                         break;
                     case 3:
-                        System.out.println("ÄúÈ·¶¨ÒªÍË³ö±¾ÏµÍ³Âğ[y/n]");
+                        System.out.println("æ‚¨ç¡®å®šè¦é€€å‡ºæœ¬ç³»ç»Ÿå—[y/n]");
                         exit=in.next();
                         while(!exit.matches("[yY]")&&!exit.matches("[nN]")){
-                            System.out.println("ÊäÈë²»ºÏ·¨£¡ÇëÖØĞÂÊäÈë");
+                            System.out.println("è¾“å…¥ä¸åˆæ³•ï¼è¯·é‡æ–°è¾“å…¥");
                            exit=in.next();
                         }
                         if(exit.matches("[yY]")){
                             logout=true;
-                            System.out.println("ÄúÒÑ³É¹¦ÍË³ö£¬¸ĞĞ»Ê¹ÓÃ±¾ÏµÍ³£¡");
+                            System.out.println("æ‚¨å·²æˆåŠŸé€€å‡ºï¼Œæ„Ÿè°¢ä½¿ç”¨æœ¬ç³»ç»Ÿï¼");
                         }else if(exit.matches("[nN]")){
-                            System.out.println("ÄúÑ¡ÔñÁË¼ÌĞøÊ¹ÓÃ±¾ÏµÍ³¡£");
+                            System.out.println("æ‚¨é€‰æ‹©äº†ç»§ç»­ä½¿ç”¨æœ¬ç³»ç»Ÿã€‚");
                         }
                         break;
                     default:
@@ -49,24 +52,26 @@ public class CommandUi {
         }
     }
 
-    private static void printmenu() {
+    @Test
+    public void printmenu() {
         System.out.println();
-        System.out.println("************************100ÒÔÄÚµÄ¿ÚËãÁ·Ï°ÏµÍ³*************************");
+        System.out.println("************************100ä»¥å†…çš„å£ç®—ç»ƒä¹ ç³»ç»Ÿ*************************");
         System.out.println();
-        System.out.println("====================¹¦ÄÜÁĞ±í(ÊäÈëÊı×ÖÑ¡Ôñ¹¦ÄÜ£¬°´»Ø³µ¼ü)=================");
+        System.out.println("====================åŠŸèƒ½åˆ—è¡¨(è¾“å…¥æ•°å­—é€‰æ‹©åŠŸèƒ½ï¼ŒæŒ‰å›è½¦é”®)=================");
         for(int i=0;i<Mainmenu.length;i++){
             System.out.println(""+i+": "+Mainmenu[i]);
         }
-        System.out.println("-------------------------------------------------------------------");
-        System.out.println("ÇëÑ¡Ôñ.......");
+        System.out.println("------------------------------------------------------------------");
+        System.out.println("è¯·é€‰æ‹©.......");
         System.out.println();
     }
 
-    public static void printindex1(int index){
+
+    public void printindex1(int index){
         int quantity=0;
-        System.out.println("ÄúÑ¡ÔñÁË£º"+Mainmenu[index]);
+        System.out.println("æ‚¨é€‰æ‹©äº†ï¼š"+Mainmenu[index]);
         System.out.println();
-        System.out.println("ÇëÑ¡ÔñÌâÄ¿ÀàĞÍÄ£Ê½");
+        System.out.println("è¯·é€‰æ‹©é¢˜ç›®ç±»å‹æ¨¡å¼");
         System.out.println("-------------------------------------------------------------------");
         for(int i=0;i< Pattern.length;i++){
             System.out.println(""+i+":"+Pattern[i]);
@@ -74,14 +79,14 @@ public class CommandUi {
         System.out.println("-------------------------------------------------------------------");
         String str= in.next();
         while(!str.equals("0")&&!str.equals("1")&&!str.equals("2")){
-            System.out.println("ÊäÈë²»ºÏ·¨£ºÖ»ÄÜÊäÈë0-2µÄÊı×Ö¡£ÇëÖØĞÂÊäÈë£¡");
+            System.out.println("è¾“å…¥ä¸åˆæ³•ï¼šåªèƒ½è¾“å…¥0-2çš„æ•°å­—ã€‚è¯·é‡æ–°è¾“å…¥ï¼");
             str= in.next();
         }
         int patternindex=Integer.parseInt(str);
-        if(patternindex==0){
-            System.out.println("ÄúÑ¡ÔñÁËÌâÄ¿ÀàĞÍÄ£Ê½£º"+Pattern[patternindex]);
+        if(patternindex==0){  //æŒ‘æˆ˜æ¨¡å¼
+            System.out.println("æ‚¨é€‰æ‹©äº†é¢˜ç›®ç±»å‹æ¨¡å¼ï¼š"+Pattern[patternindex]);
             System.out.println();
-            System.out.println("ÇëÊäÈëËãÊ½ÊıÁ¿:");
+            System.out.println("è¯·è¾“å…¥ç®—å¼æ•°é‡:");
             int count=0;
             while(true){
                 try{
@@ -93,16 +98,17 @@ public class CommandUi {
                 }
                 if(count>0){
                     g.generateExercise(count,index);
+                    ImportCheckFile(Mainmenu[index]);
                     break;
                 }
                 if (count<=0){
-                    System.out.println("ÊäÈë²»ºÏ·¨,ÇëÖØĞÂÊäÈë£¡");
+                    System.out.println("è¾“å…¥ä¸åˆæ³•,è¯·é‡æ–°è¾“å…¥ï¼");
                 }
             }
         }else if(patternindex==1){
-            System.out.println("ÄúÑ¡ÔñÁËÌâÄ¿ÀàĞÍÄ£Ê½£º"+Pattern[patternindex]);
+            System.out.println("æ‚¨é€‰æ‹©äº†é¢˜ç›®ç±»å‹æ¨¡å¼ï¼š"+Pattern[patternindex]);
             System.out.println();
-            System.out.println("ÇëÊäÈëËãÊ½ÊıÁ¿:");
+            System.out.println("è¯·è¾“å…¥ç®—å¼æ•°é‡:");
             while(true){
                 try{
                     quantity=in.nextInt();
@@ -115,23 +121,46 @@ public class CommandUi {
                     break;
                 }
                 if (quantity<=0){
-                    System.out.println("ÊäÈë²»ºÏ·¨,ÇëÖØĞÂÊäÈë£¡");
+                    System.out.println("è¾“å…¥ä¸åˆæ³•,è¯·é‡æ–°è¾“å…¥ï¼");
                 }
             }
             if(index == 0){
-                g.genetateAddExercise(quantity);
-                g.readAddExercise();
+                g.genetateAddExercise(quantity,Mainmenu[index]);
             }else if (index == 1) {
-                g.genetateSubExercise(quantity);
-                g.readSubExercise();
+                g.genetateSubExercise(quantity,Mainmenu[index]);
             } else {
-                g.genetateMixExercise(quantity);
-                g.readmixExercise();
+                g.genetateMixExercise(quantity,Mainmenu[index]);
             }
-
         }else if(patternindex==2){
-            System.out.println("ÄúÑ¡ÔñÁË£º·µ»ØÉÏÒ»¼¶²Ëµ¥À¸");
+            System.out.println("æ‚¨é€‰æ‹©äº†ï¼šè¿”å›ä¸Šä¸€çº§èœå•æ ");
             return;
         }
+    }
+
+    public void ImportCheckFile(String pattern){
+        System.out.println("-------------------------------------------------------------------");
+        System.out.println("æ‚¨æ˜¯å¦éœ€è¦å¯¼å‡ºæœ¬æ¬¡ç»ƒä¹ è®°å½•ï¼Ÿ");
+        System.out.println("1 æ˜¯");
+        System.out.println("2 å¦");
+        System.out.println("-------------------------------------------------------------------");
+        while (true){
+            try {
+                int n = in.nextInt();
+                if (n == 1){
+                    g.writeCheckFile(pattern);
+                    System.out.println("å·²ç»æˆåŠŸå¯¼å‡ºå•¦ï¼");
+                    break;
+                }else if (n == 2){
+                    break;
+                }else {
+                    System.out.println("è¾“å…¥ä¸åˆæ³•,è¯·é‡æ–°è¾“å…¥ï¼");
+                    continue;
+                }
+            } catch (Exception e) {
+                System.out.println("è¾“å…¥ä¸åˆæ³•,è¯·é‡æ–°è¾“å…¥ï¼");
+                in.next();
+            }
+        }
+
     }
 }

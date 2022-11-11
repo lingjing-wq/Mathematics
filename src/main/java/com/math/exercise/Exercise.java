@@ -1,140 +1,22 @@
 package com.math.exercise;
 import com.math.equation.Equation;
-import com.math.equation.AdditionEquation;
-import com.math.equation.SubstractEquation;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Exercise {
 
-    private int quantity;
-    private int index;
-    public ArrayList<Equation> exercise = null;
+    private Integer res;
+    private Equation equation;
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public Exercise(Equation equation, Integer res) {
+        this.equation = equation;
+        this.res = res;
     }
 
-    public int getIndex() {
-        return index;
+    @Override
+    public String toString() {
+        return "é¢˜ç›®ï¼š"+equation.toString() + "\t"+"æ‚¨çš„ç­”æ¡ˆï¼š"+equation.toString() + res+"\t"+"æ­£ç¡®çš„ç­”æ¡ˆï¼š"+equation.toString() + equation.getValue();
     }
 
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
-    public Exercise(){
-        exercise=new ArrayList<Equation>();
-    }
-
-    public Exercise(int quantity){
-        this.setQuantity(quantity);
-        exercise=new ArrayList<Equation>();
-    }
-
-    public boolean occursIn(Equation equ) {
-        boolean flag = false;
-        for(Equation equation: exercise) {
-            if(equation.isEqual(equ)) {
-                flag= true;
-                break;
-            }
-        }
-        return flag;
-    }
-
-    //Ëæ»úÉú³É»ìºÏÁ·Ï°Ìâ
-    public void generateExercise() {
-        int i = 0;
-        Random random =new Random();
-        while(i<quantity) {
-            Equation equation;
-            int ov=(short)random.nextInt(2);
-            if(ov==1) {
-                equation = new AdditionEquation();
-            }
-            else {
-                equation = new SubstractEquation();
-            }
-            if(!occursIn(equation)) {  //ÅÐ¶ÏÊÇ·ñÓÐÏàÍ¬µÄËãÊ½Ìâ
-                exercise.add(equation);
-                i++;
-            }
-        }
-    }
-
-    //Ëæ»úÉú³É¼Ó·¨Á·Ï°Ìâ
-    public void generateAdditionExercise() {
-        int i = 0;
-        while(i<quantity) {
-            Equation equation = new AdditionEquation();
-            if(!occursIn(equation)) {  //ÅÐ¶ÏÊÇ·ñÓÐÏàÍ¬µÄËãÊ½Ìâ
-                exercise.add(equation);
-                i++;
-            }
-        }
-    }
-
-    //Ëæ»úÉú³É¼õ·¨Á·Ï°Ìâ
-    public void generateSubstractExercise() {
-        int i = 0;
-        while(i<quantity) {
-            Equation equation = new SubstractEquation();
-            if(!occursIn(equation)) {  //ÅÐ¶ÏÊÇ·ñÓÐÏàÍ¬µÄËãÊ½Ìâ
-                exercise.add(equation);
-                i++;
-            }
-        }
-    }
-
-    public void printExercise() {//Êä³öËãÊ½
-        int i = 0;
-        for(Equation e:exercise) {
-            i++;
-            System.out.println("("+i+")"+""+e.getLeft_operand()+e.getOperator()+e.getRight_operand()+"="+e.getValue());
-            if(i%5 == 0) {
-                System.out.println("\t");
-            }
-        }
-    }
-
-    public Equation get(int index) {  //»ñÈ¡µÚindex¸öËãÊ½
-        if(index < exercise.size()) {
-            return exercise.get(index);
-        }
-        else {
-            return null;
-        }
-    }
-
-    public Equation next() { //»ñÈ¡ÏÂÒ»¸öËãÊ½
-        if(index < exercise.size()) {
-            return exercise.get(index++);
-        }
-        else {
-            return null;
-        }
-    }
-
-    public boolean hasNext() {//±éÀúËãÊ½
-        return index < exercise.size();
-    }
-
-    public boolean add(Equation equation) {//ÔÚÏ°Ìâ¼¯ÖÐ¼ÓÈëËãÊ½
-        if(index < quantity) {
-            exercise.add(equation);
-            index++;
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    public int size() {//»ñÈ¡Ï°ÌâÊýÁ¿
-        return exercise.size();
-    }
 }
